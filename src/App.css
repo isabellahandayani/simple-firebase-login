@@ -4,8 +4,8 @@
   font-family: "Ubuntu", sans-serif;
 }
 
-
-.firebaseui-idp-button, .firebaseui-tenant-button {
+.firebaseui-idp-button,
+.firebaseui-tenant-button {
   max-width: 500px !important;
   width: 100%;
 }

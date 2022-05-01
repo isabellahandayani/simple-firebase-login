@@ -20,11 +20,13 @@ const Register = () => {
   const handleRegister = async () => {
     await createUserWithEmailAndPassword(auth, email, password)
       .then((_) => {
-        alert('User created successfully!');
+        alert("User created successfully!");
       })
       .catch((error) => {
-		alert(error.message);
+        alert(error.message);
       });
+    setEmail("");
+    setPassword("");
   };
 
   return (

@@ -14,7 +14,7 @@ import {
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import { useEffect, useState } from "react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
-import { auth, login } from "../service/FirebaseServices";
+import { auth } from "../service/FirebaseServices";
 import { UI_CONFIG } from "../const";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -28,19 +28,20 @@ const Login = () => {
   const handleLogin = async () => {
     await signInWithEmailAndPassword(auth, email, password)
       .then((_) => {
-        alert('Succesful')
+        alert("Succesful");
       })
       .catch((error) => {
-		alert(error.message);
+        alert(error.message);
       });
+    setEmail("");
+    setPassword("");
   };
 
-  // Listen to the Firebase Auth state and set the local state.
   useEffect(() => {
     const unregisterAuthObserver = auth.onAuthStateChanged((user) => {
       setIsSignedIn(!!user);
     });
-    return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
+    return () => unregisterAuthObserver();
   }, []);
 
   if (!isSignedIn) {

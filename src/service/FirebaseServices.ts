@@ -14,7 +14,3 @@ export const auth = getAuth();
 export const logout = () => {
   auth.signOut();
 };
-
-export const login = async (email: string, password: string) => {
-
-};
